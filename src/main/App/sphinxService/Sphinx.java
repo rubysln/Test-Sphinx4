@@ -1,4 +1,4 @@
-package sphinxService;
+package App.sphinxService;
 
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
@@ -18,8 +18,9 @@ public class Sphinx {
         configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
         break;
       case "ru":
-        // Будет добавлена русская библиотека
-        // ...
+        configuration.setAcousticModelPath("src\\main\\resources\\cmusphinx-ru-5.2");
+        configuration.setDictionaryPath("src\\main\\resources\\cmusphinx-ru-5.2\\ru.dic");
+        configuration.setLanguageModelPath("src\\main\\resources\\cmusphinx-ru-5.2\\ru.lm");
     }
   }
 
@@ -33,5 +34,9 @@ public class Sphinx {
       }
     }
     recognizer.stopRecognition();
+  }
+
+  public void startDecoding(){
+    //...
   }
 }
